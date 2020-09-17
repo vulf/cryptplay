@@ -8,6 +8,8 @@ def shift():
     opt = input("encrypt or decrypt? (e/d): ")
     if opt == 'e':
         for i in m:
+            if i == ' ':
+                continue
             res += chr( (((ord(i) - 97) + k) % 26)+97 )
         return print('secret: ' + res)
     elif opt == 'd':
