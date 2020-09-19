@@ -14,6 +14,8 @@ def shift():
         return print('secret: ' + res)
     elif opt == 'd':
         for i in m: 
+            if i == ' ':
+                continue
             res += chr( (((ord(i) - 97) - k) % 26) + 97)
         return print('message: ' + res)
 
