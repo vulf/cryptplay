@@ -33,8 +33,6 @@ for i in range(0,len(msg),2):
         msg.insert((i+1), 'x')
         msg_split.append(''.join(msg[i:i+2]))
 
-#print(msg_split)
-
 # encrypting msg_split
 enc = ''
 for pair in msg_split:
@@ -45,7 +43,6 @@ for pair in msg_split:
             index0 = r.index(pair[0])
             index1 = r.index(pair[1])
             enc += r[(index0+1) % 5] + r[(index1+1) % 5]
-            #print(enc)
             f = True
     # rule 2 - same column
     if not f:
@@ -54,39 +51,26 @@ for pair in msg_split:
             for r in range(5):
                 col.append(table[r][c])
             if pair[0] in col and pair[1] in col:
-                #print(col)
-                #input()
                 index0 = col.index(pair[0])
                 index1 = col.index(pair[1])
                 enc += table[(index0+1) % 5][c]
                 enc += table[(index1+1) % 5][c]
-                #print(enc)
                 f = True
     # rule 3 - not on same row nor same column
     if not f:
         row0,col0,row1,col1 = 0,0,0,0
-        #print(f'pair={pair}')
-        #input()
         for r in table:
             if pair[0] in r:
-                #print(pair[0])
-                #input()
                 row0 = table.index(r)
-                #print(row0)
             elif pair[1] in r:
-                #print(pair[1])
-                #input()
                 row1 = table.index(r)
-                #print(row1)
         # get column
         for r in range(5):
             for c in range(5):
                 if table[r][c] == pair[1]:
                     col0 = c
-                    #print(f"{pair[1]}'s col: {col0}")
                 elif table[r][c] == pair[0]:
                     col1 = c
-                    #print(f"{pair[0]}'s col: {col1}")
         enc += table[row0][col0]
         enc += table[row1][col1]
 
