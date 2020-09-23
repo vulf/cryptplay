@@ -2,10 +2,10 @@
 # Playfair cipher
 from collections import OrderedDict
 
-key = input('enter key: ')                                              # ask key
-#key = 'playfair example'
-#msg,msg_split = 'Hide the gold in the tree stump'.lower().replace(' ',''), list()
-msg,msg_split = input('enter message: ').lower().replace(' ','') , list()
+key = 'playfair example'
+msg,msg_split = 'Hide the gold in the tree stump'.lower().replace(' ',''), list()
+#key = input('enter key: ')                                              # ask key
+#msg,msg_split = input('enter message: ').lower().replace(' ','') , list()
 msg = list(msg.replace('j','i'))
 key_nodups = ''.join(OrderedDict.fromkeys(key).keys()).replace(' ','')  # remove duplicate chars and spaces from key
 keylen = len(key_nodups)                                                # get length of key 
@@ -75,3 +75,7 @@ for pair in msg_split:
         enc += table[row1][col1]
 
 print(enc)
+
+# decryption
+ct = list(enc)
+
