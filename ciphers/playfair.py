@@ -77,5 +77,3 @@ for pair in msg_split:
 print(enc)
 
 # decryption
-ct = list(enc)
-print(ct)
