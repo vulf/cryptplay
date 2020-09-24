@@ -46,9 +46,9 @@ for pair in msg_split:
             f = True
     # rule 2 - same column
     if not f:
-        for c in range(5):
+        for c in range(cc):
             col = list()
-            for r in range(5):
+            for r in range(rc):
                 col.append(table[r][c])
             if pair[0] in col and pair[1] in col:
                 index0 = col.index(pair[0])
